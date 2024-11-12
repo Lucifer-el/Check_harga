@@ -13,7 +13,7 @@ import javax.swing.JOptionPane;
  *
  * @author Ammar
  */
-public class Koneksi {
+public class koneksi {
     Connection con;
     Statement stm;
     
