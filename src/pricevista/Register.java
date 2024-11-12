@@ -4,7 +4,6 @@
  */
 package pricevista;
 
-import java.awt.Color;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -23,23 +22,6 @@ public class Register extends javax.swing.JFrame {
         initComponents();
         setTitle("Register Form");
     }
-
-    public class config {
-    private static Connection mysqlconfig;
-    public static Connection configDB()throws SQLException{
-        try {
-            String url="jdbc:mysql://localhost:3306/pricevista"; //url database
-            String user="root"; //user database
-            String pass=""; //password database
-            DriverManager.registerDriver(new com.mysql.jdbc.Driver());
-            mysqlconfig=DriverManager.getConnection(url, user, pass);            
-        } catch (Exception e) {
-            System.err.println("koneksi gagal "+e.getMessage()); //perintah menampilkan error pada koneksi
-        }
-        return mysqlconfig;
-    }       
-    }
-    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -180,32 +162,32 @@ public class Register extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         String username = jTextField1.getText();
-    String password = jPasswordField1.getText();
-    String confirmPassword = jPasswordField2.getText(); // Field untuk konfirmasi password
+        String password = jPasswordField1.getText();
+        String confirmPassword = jPasswordField2.getText(); // Field untuk konfirmasi password
 
-    // Validasi agar semua field diisi
-    if (username.isEmpty() || password.isEmpty() || confirmPassword.isEmpty()) {
-        JOptionPane.showMessageDialog(this, "Semua field harus diisi!", "Error", JOptionPane.ERROR_MESSAGE);
-        return;
-    }
-
-    // Validasi konfirmasi password
-    if (!password.equals(confirmPassword)) {
-        JOptionPane.showMessageDialog(this, "Password dan Konfirmasi Password tidak sesuai!", "Error", JOptionPane.ERROR_MESSAGE);
-        return;
-    }
-    
-        try {
-            String sql = "INSERT INTO users (username, password, role) VALUES ('"+jTextField1.getText()+"','"+jPasswordField1.getText()+"','member')";
-            java.sql.Connection conn=(Connection)config.configDB();
-            java.sql.PreparedStatement pst=conn.prepareStatement(sql);
-            pst.execute();
-            JOptionPane.showMessageDialog(null, "Berhasil Membuat User");
-            new Login().setVisible(true);
-            this.dispose();
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, e.getMessage());
+        // Validasi agar semua field diisi
+        if (username.isEmpty() || password.isEmpty() || confirmPassword.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Semua field harus diisi!", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
         }
+
+        // Validasi konfirmasi password
+        if (!password.equals(confirmPassword)) {
+            JOptionPane.showMessageDialog(this, "Password dan Konfirmasi Password tidak sesuai!", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+            try {
+                String sql = "INSERT INTO users (username, password, role) VALUES ('"+jTextField1.getText()+"','"+jPasswordField1.getText()+"','member')";
+                java.sql.Connection conn=(Connection)koneksi.config.configDB();
+                java.sql.PreparedStatement pst=conn.prepareStatement(sql);
+                pst.execute();
+                JOptionPane.showMessageDialog(null, "Berhasil Membuat User");
+                new Login().setVisible(true);
+                this.dispose();
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(this, e.getMessage());
+            }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
