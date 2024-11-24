@@ -54,6 +54,16 @@ public class MemberDaftarProduk extends javax.swing.JFrame {
             jTable1.setModel(model);
         } catch (Exception e) {
         }
+        // Tambahkan MouseListener untuk menangkap data baris yang diklik
+        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+        public void mouseClicked(java.awt.event.MouseEvent evt) {
+            int selectedRow = jTable1.getSelectedRow();
+            if (selectedRow != -1) {
+                // Ambil data dari baris yang dipilih dan masukkan ke JTextFields
+                txtsearch.setText(jTable1.getValueAt(selectedRow, 0).toString());
+            }
+        }
+    });
     }
     
     private void search_table() {
@@ -199,9 +209,10 @@ public class MemberDaftarProduk extends javax.swing.JFrame {
                             .addGroup(panel2Layout.createSequentialGroup()
                                 .addComponent(txtsearch, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnsearch)
-                                .addGap(18, 18, 18)
-                                .addComponent(btnreset)))))
+                                .addGroup(panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(btnreset)
+                                    .addComponent(btnsearch))))
+                        .addGap(90, 90, 90)))
                 .addContainerGap(51, Short.MAX_VALUE))
         );
         panel2Layout.setVerticalGroup(
@@ -216,9 +227,10 @@ public class MemberDaftarProduk extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtsearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnsearch)
-                    .addComponent(btnreset))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 66, Short.MAX_VALUE)
+                    .addComponent(btnsearch))
+                .addGap(18, 18, 18)
+                .addComponent(btnreset)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
                 .addComponent(btnkembali)
                 .addGap(28, 28, 28))
         );
@@ -239,7 +251,7 @@ public class MemberDaftarProduk extends javax.swing.JFrame {
 
     private void btnkembaliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnkembaliActionPerformed
         // TODO add your handling code here:
-        new AdminMenu().setVisible(true);
+        new Welcome().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnkembaliActionPerformed
 
