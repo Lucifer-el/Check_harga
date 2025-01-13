@@ -13,12 +13,12 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Ammar
  */
-public class MemberDaftarProduk extends javax.swing.JFrame {
+public class DaftarProduk extends javax.swing.JFrame {
 
     /**
      * Creates new form MemberDataProduk
      */
-    public MemberDaftarProduk() {
+    public DaftarProduk() {
         initComponents();
         setTitle("DAFTAR PRODUCT");
         load_table();
@@ -211,8 +211,7 @@ public class MemberDaftarProduk extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(btnreset)
-                                    .addComponent(btnsearch))))
-                        .addGap(90, 90, 90)))
+                                    .addComponent(btnsearch))))))
                 .addContainerGap(51, Short.MAX_VALUE))
         );
         panel2Layout.setVerticalGroup(
@@ -287,21 +286,23 @@ public class MemberDaftarProduk extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(MemberDaftarProduk.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DaftarProduk.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(MemberDaftarProduk.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DaftarProduk.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(MemberDaftarProduk.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DaftarProduk.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(MemberDaftarProduk.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DaftarProduk.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new MemberDaftarProduk().setVisible(true);
+                new DaftarProduk().setVisible(true);
             }
         });
     }

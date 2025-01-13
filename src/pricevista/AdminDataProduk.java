@@ -339,7 +339,7 @@ public class AdminDataProduk extends javax.swing.JFrame {
             pst.setString(2, txtjenisproduct.getText());
             pst.setString(3, txthargasatuan.getText());
             pst.setString(4, txthargaperpack.getText());
-            pst.setString(5, txtidproduct.getText()); // Acuan utama adalah id_mobil
+            pst.setString(5, txtidproduct.getText());
 
             // Eksekusi perintah update dan periksa jumlah baris yang diupdate
             int rowsAffected = pst.executeUpdate();
